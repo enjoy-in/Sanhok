@@ -55,6 +55,7 @@ const getLodgingDetail = async (req, res, next) => {
   try {
     const id = req.params.id;
     const result = await Lodging.findAll({
+      where: { lodging_id: id },
       include: [{ model: Room, attributes: [""] }]
     });
   } catch (err) {
